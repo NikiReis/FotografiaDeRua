@@ -2,15 +2,13 @@
 
 Portfólio pessoal de fotografia de rua, feito em Brasília. Site estático, de página única, sem frameworks e sem build — só HTML, CSS e JavaScript puro.
 
-🔗 **Site publicado:** `https://NikiReis.github.io/NOME-DO-REPOSITORIO/` *(atualize esse link com o nome real do repositório)*
-
-![preview](preview.png) <!-- opcional: adicione um print do site aqui -->
-
+🔗 **Site publicado:** [linekreis.com.br](https://nikireis.github.io/FotografiaDeRua/)
 ---
+**Observação**: Todas as fotos publicadas no site são de minha autoria.
 
 ## Sobre o projeto
 
-Um visualizador de portfólio inspirado em sites de fotografia de rua minimalistas (como o do Ricardo Franzen), com identidade própria:
+Um visualizador de portfólio inspirado em sites de fotografia de rua minimalistas com identidade própria:
 
 - Paleta escura em tom verde-garrafa, tipografia serifada (Fraunces) para títulos e Inter para texto.
 - Grade de fotos com alturas variadas — cada foto aparece em preto e branco e "revela" a cor original ao passar o mouse, remetendo ao instante decisivo da fotografia de rua.
@@ -52,21 +50,6 @@ python3 -m http.server 8000
 # depois acesse http://localhost:8000
 ```
 
-## Fotos fora do repositório público
-
-As fotos **não ficam versionadas neste repositório** (que é público). Elas vivem em um repositório privado separado — [`NikiReis/linek-reis-fotos-master`](https://github.com/NikiReis/linek-reis-fotos-master) — e são copiadas para dentro do site automaticamente durante o deploy, pelo GitHub Actions. Assim, quem navegar neste repositório público não encontra os arquivos de imagem em lugar nenhum, nem no histórico de commits.
-
-**Como funciona o workflow:**
-1. Baixa este repositório (o código do site).
-2. Baixa o repositório privado de fotos, usando um token guardado em **Settings → Secrets and variables → Actions** com o nome `FOTOS_TOKEN`.
-3. Copia as fotos para a pasta `fotos/` só durante a execução (elas nunca são commitadas aqui).
-4. Publica o resultado no GitHub Pages.
-
-**Se você importar fotos que já estavam commitadas aqui antes:** apagar o arquivo ou adicionar ao `.gitignore` não remove versões antigas do histórico do Git — commits passados continuam guardando esses arquivos, acessíveis por quem souber navegar no histórico. Se as fotos deste repositório já foram commitadas alguma vez, o jeito correto de removê-las de verdade é:
-
-- **Opção mais simples** (recomendada se o repositório é recente e você é o único colaborador): apague o repositório no GitHub e crie um novo, subindo o código já sem a pasta `fotos/` desde o primeiro commit.
-- **Opção sem recriar o repositório**: use a ferramenta [`git filter-repo`](https://github.com/newren/git-filter-repo) para reescrever o histórico removendo a pasta `fotos/` de todos os commits antigos, depois faça um `push --force`. É mais trabalhoso e exige que ninguém mais tenha um clone antigo do repositório (senão os arquivos voltam ao dar push de novo).
-
 ## Deploy — GitHub Pages via GitHub Actions
 
 Este repositório já vem com um workflow (`.github/workflows/deploy.yml`) que publica o conteúdo automaticamente no GitHub Pages a cada `push` na branch `main`, usando as actions oficiais do GitHub (`actions/upload-pages-artifact` + `actions/deploy-pages`) — não a configuração antiga por branch `gh-pages`.
@@ -106,21 +89,15 @@ Se um dia quiser usar um domínio próprio (ex: `reislinek.com.br`), o processo 
 
 ## Adicionando ou trocando fotos
 
-Como as fotos agora vivem no repositório privado, o processo muda um pouco:
-
-1. Otimize a foto antes de subir (fotos de câmera costumam vir com 6-11MB, o que deixa o site lento). Um comando rápido com ImageMagick, incluindo marca d'água:
+1. Otimize a foto antes de subir (fotos de câmera costumam vir com 6-11MB, o que deixa o site lento). Um comando rápido com ImageMagick:
    ```bash
-   convert original.jpg -auto-orient -resize 2200x2200\> -strip -colorspace sRGB -quality 82 \
-     -gravity SouthEast -font DejaVu-Sans -pointsize 30 -fill "rgba(255,255,255,0.6)" \
-     -annotate +36+30 "© Linek Reis" 16.jpg
+   convert original.jpg -auto-orient -resize 2200x2200\> -strip -colorspace sRGB -quality 82 fotos/16.jpg
    ```
-2. Suba esse arquivo (`16.jpg`) para o repositório **privado** `NikiReis/linek-reis-fotos-master` (não este repositório).
-3. Neste repositório (o do site), copie o bloco de um `<div class="frame">` existente em `index.html`, cole depois do último, e ajuste:
+2. Copie o bloco de um `<div class="frame">` existente em `index.html`, cole depois do último, e ajuste:
    - `fotos/16.jpg` → caminho da nova imagem
    - `data-title` e `data-tag` → título e legenda (cidade + configurações da câmera)
    - o texto dentro de `<span class="title">` e `<span class="tag">`
-4. Atualize o número em `<span>15 imagens selecionadas</span>` no topo da seção de portfólio.
-5. Dê push neste repositório — o Actions vai buscar a foto nova automaticamente no repositório privado durante o próximo deploy.
+3. Atualize o número em `<span>15 imagens selecionadas</span>` no topo da seção de portfólio.
 
 ## Créditos
 
