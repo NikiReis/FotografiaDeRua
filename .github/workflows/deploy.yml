@@ -1,0 +1,51 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar o repositório do site (público)
+        uses: actions/checkout@v4
+
+      - name: Baixar as fotos do repositório privado
+        uses: actions/checkout@v4
+        with:
+          repository: NikiReis/linek-reis-fotos-master
+          token: ${{ secrets.FOTOS_TOKEN }}
+          path: fotos-privadas
+
+      - name: Colocar as fotos no lugar certo antes de publicar
+        run: |
+          mkdir -p fotos
+          cp fotos-privadas/*.jpg fotos/
+          rm -rf fotos-privadas
+          ls -la fotos
+
+      - name: Configurar o GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Empacotar o site (já com as fotos copiadas)
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "."
+
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
