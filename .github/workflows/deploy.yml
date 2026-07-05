@@ -34,7 +34,7 @@ jobs:
       - name: Colocar as fotos no lugar certo antes de publicar
         run: |
           mkdir -p fotos
-          cp fotos-privadas/*.jpg fotos/
+          cp fotos-privadas/*.JPG fotos/
           rm -rf fotos-privadas
           ls -la fotos
 
