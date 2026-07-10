@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Linek Reis — Fotografia de Rua</title>
-<meta name="description" content="Portfólio de fotografia de rua de Linek Reis. Ensaios feitos em Brasília.">
+<title>Linek Reis — Brasília Habitada</title>
+<meta name="description" content="Brasília Habitada — ensaios documentais de Linek Reis sobre arquitetura, luz e cotidiano em Brasília.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,6 +36,7 @@
     padding:22px 5vw; mix-blend-mode:difference;
   }
   .logo{ font-family:var(--f-display); font-weight:600; font-size:16px; letter-spacing:.01em; }
+  nav{ display:flex; gap:24px; }
   nav a{ font-size:12px; letter-spacing:.06em; text-transform:uppercase; padding:6px 0; border-bottom:1px solid transparent; }
   nav a:hover, nav a:focus-visible{ border-bottom-color:currentColor; }
 
@@ -124,6 +125,23 @@
   }
   .lb-close:hover, .lb-close:focus-visible{ border-color:var(--accent); color:var(--accent); }
 
+  .about{
+    display:grid; grid-template-columns:minmax(180px,.7fr) minmax(280px,1.5fr);
+    gap:48px; padding:88px 5vw; border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .about h2{
+    font-family:var(--f-display); font-weight:600; font-style:italic;
+    font-size:clamp(28px,4vw,48px); margin:0;
+  }
+  .about-copy{ max-width:720px; }
+  .about-copy p{ margin:0 0 18px; color:var(--ink-dim); line-height:1.75; font-size:15px; }
+  .about-copy p:first-child{ color:var(--ink); font-size:18px; line-height:1.65; }
+  @media (max-width:700px){
+    .about{ grid-template-columns:1fr; gap:24px; padding:64px 6vw; }
+    nav{ gap:14px; }
+  }
+
   footer{
     padding:64px 5vw 48px; display:flex; flex-wrap:wrap; justify-content:space-between; gap:24px;
     border-top:1px solid var(--line);
@@ -143,18 +161,17 @@
 
 <header>
   <div class="logo">Linek Reis</div>
-  <nav><a href="#portfolio">Portfólio</a></nav>
+  <nav><a href="#portfolio">Portfólio</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
 </header>
 
 <section class="hero">
-  <div class="hero-frame">Ensaios de rua — Brasília</div>
-  <div class="hero-frame">F/7.1 · 1/30 · 14mm · ISO 1000</div>
-  <h1>Fotografia<br>de Rua</h1>
-  <p>Ensaios feitos a pé, na luz que sobra do dia. Registro do instante comum antes que ele vire lembrança.</p>
+  <div class="hero-frame">Ensaios documentais — Brasília</div>
+  <h1>Brasília<br>Habitada</h1>
+  <p>Registro o cotidiano de Brasília procurando pequenos encontros entre arquitetura, luz e pessoas — instantes comuns antes que virem lembrança.</p>
 </section>
 
 <div class="section-head" id="portfolio">
-  <h2>Portfólio</h2>
+  <h2>Ensaios</h2>
   <span>15 imagens selecionadas</span>
 </div>
 
@@ -164,7 +181,7 @@
     <span class="frame-no">01</span>
     <button class="open" data-title="À Margem" data-tag="Brasília · f/6.3 · 1/20s · ISO 125" aria-label="Ampliar foto À Margem"></button>
     <div class="photo" style="background-image:url('fotos/01_1.JPG')"></div>
-    <div class="meta"><span class="title">À Margem</span><span class="tag">Brasília · f/6.3 · 1/20s · ISO 125</span></div>
+    <div class="meta"><span class="title">À Margem</span><span class="tag">Brasília · 2026</span></div>
 
   </div>
 
@@ -172,108 +189,118 @@
     <span class="frame-no">02</span>
     <button class="open" data-title="Sob a Curva" data-tag="Brasília · f/6.3 · 1/1600s · ISO 100" aria-label="Ampliar foto Sob a Curva"></button>
     <div class="photo" style="background-image:url('fotos/02.JPG')"></div>
-    <div class="meta"><span class="title">Sob a Curva</span><span class="tag">Brasília · f/6.3 · 1/1600s · ISO 100</span></div>
+    <div class="meta"><span class="title">Sob a Curva</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">03</span>
     <button class="open" data-title="Caminho de Volta" data-tag="Brasília · f/8 · 1/500s · ISO 400" aria-label="Ampliar foto Caminho de Volta"></button>
     <div class="photo" style="background-image:url('fotos/03.JPG')"></div>
-    <div class="meta"><span class="title">Caminho de Volta</span><span class="tag">Brasília · f/8 · 1/500s · ISO 400</span></div>
+    <div class="meta"><span class="title">Caminho de Volta</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">04</span>
-    <button class="open" data-title="Irmandade x Banco Verde" data-tag="Brasília · f/6.3 · 1/50s · ISO 400" aria-label="Ampliar foto Irmandade x Banco Verde"></button>
+    <button class="open" data-title="Conversas no Banco Verde" data-tag="Brasília · f/6.3 · 1/50s · ISO 400" aria-label="Ampliar foto Conversas no Banco Verde"></button>
     <div class="photo" style="background-image:url('fotos/04.JPG')"></div>
-    <div class="meta"><span class="title">Irmandade x Banco Verde</span><span class="tag">Brasília · f/6.3 · 1/50s · ISO 400</span></div>
+    <div class="meta"><span class="title">Conversas no Banco Verde</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame tall">
     <span class="frame-no">05</span>
-    <button class="open" data-title="Argentina vs Algeria" data-tag="Brasília · f/6.3 · 1/13s · ISO 3200" aria-label="Ampliar foto Argentina vs Algeria"></button>
+    <button class="open" data-title="Noite de Jogo" data-tag="Brasília · f/6.3 · 1/13s · ISO 3200" aria-label="Ampliar foto Noite de Jogo"></button>
     <div class="photo" style="background-image:url('fotos/05.JPG')"></div>
-    <div class="meta"><span class="title">Argentina vs Algeria</span><span class="tag">Brasília · f/6.3 · 1/13s · ISO 3200</span></div>
+    <div class="meta"><span class="title">Noite de Jogo</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">06</span>
     <button class="open" data-title="Reflexo no Ônibus" data-tag="Brasília · f/5 · 1/500s · ISO 400" aria-label="Ampliar foto Reflexo no Ônibus"></button>
     <div class="photo" style="background-image:url('fotos/06.JPG')"></div>
-    <div class="meta"><span class="title">Reflexo no Ônibus</span><span class="tag">Brasília · f/5 · 1/500s · ISO 400</span></div>
+    <div class="meta"><span class="title">Reflexo no Ônibus</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">07</span>
     <button class="open" data-title="Vigilância" data-tag="Brasília · f/6.3 · 1/160s · ISO 1600" aria-label="Ampliar foto Vigilância"></button>
     <div class="photo" style="background-image:url('fotos/07.JPG')"></div>
-    <div class="meta"><span class="title">Vigilância</span><span class="tag">Brasília · f/6.3 · 1/160s · ISO 1600</span></div>
+    <div class="meta"><span class="title">Vigilância</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">08</span>
     <button class="open" data-title="Carroça e Concreto" data-tag="Brasília · f/6.3 · 1/1000s · ISO 200" aria-label="Ampliar foto Carroça e Concreto"></button>
     <div class="photo" style="background-image:url('fotos/08.JPG')"></div>
-    <div class="meta"><span class="title">Carroça e Concreto</span><span class="tag">Brasília · f/6.3 · 1/1000s · ISO 200</span></div>
+    <div class="meta"><span class="title">Carroça e Concreto</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame tall">
     <span class="frame-no">09</span>
     <button class="open" data-title="Sombra na Parada" data-tag="Brasília · f/8 · 1/640s · ISO 400" aria-label="Ampliar foto Sombra na Parada"></button>
     <div class="photo" style="background-image:url('fotos/09.JPG')"></div>
-    <div class="meta"><span class="title">Sombra na Parada</span><span class="tag">Brasília · f/8 · 1/640s · ISO 400</span></div>
+    <div class="meta"><span class="title">Sombra na Parada</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">10</span>
     <button class="open" data-title="Água de Coco" data-tag="Brasília · f/6.3 · 1/1600s · ISO 400" aria-label="Ampliar foto Água de Coco"></button>
     <div class="photo" style="background-image:url('fotos/10.JPG')"></div>
-    <div class="meta"><span class="title">Água de Coco</span><span class="tag">Brasília · f/6.3 · 1/1600s · ISO 400</span></div>
+    <div class="meta"><span class="title">Água de Coco</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">11</span>
     <button class="open" data-title="Joalheria" data-tag="Brasília · f/6.3 · 1/125s · ISO 400" aria-label="Ampliar foto Joalheria"></button>
     <div class="photo" style="background-image:url('fotos/11.JPG')"></div>
-    <div class="meta"><span class="title">Joalheria</span><span class="tag">Brasília · f/6.3 · 1/125s · ISO 400</span></div>
+    <div class="meta"><span class="title">Joalheria</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame tall">
     <span class="frame-no">12</span>
     <button class="open" data-title="Pretinha" data-tag="Brasília · f/8 · 1/320s · ISO 100" aria-label="Ampliar foto Pretinha"></button>
     <div class="photo" style="background-image:url('fotos/12.JPG')"></div>
-    <div class="meta"><span class="title">Pretinha</span><span class="tag">Brasília · f/8 · 1/320s · ISO 100</span></div>
+    <div class="meta"><span class="title">Pretinha</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">13</span>
     <button class="open" data-title="Descanso" data-tag="Brasília · f/7.1 · 1/250s · ISO 400" aria-label="Ampliar foto Descanso"></button>
     <div class="photo" style="background-image:url('fotos/13.JPG')"></div>
-    <div class="meta"><span class="title">Descanso</span><span class="tag">Brasília · f/7.1 · 1/250s · ISO 400</span></div>
+    <div class="meta"><span class="title">Descanso</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">14</span>
     <button class="open" data-title="Fonte na Noite" data-tag="Brasília · f/6.3 · 1/10s · ISO 1600" aria-label="Ampliar foto Fonte na Noite"></button>
     <div class="photo" style="background-image:url('fotos/14.JPG')"></div>
-    <div class="meta"><span class="title">Fonte na Noite</span><span class="tag">Brasília · f/6.3 · 1/10s · ISO 1600</span></div>
+    <div class="meta"><span class="title">Fonte na Noite</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
   <div class="frame">
     <span class="frame-no">15</span>
     <button class="open" data-title="Fim de Tarde na Torre" data-tag="Brasília · f/6.3 · 1/640s · ISO 100" aria-label="Ampliar foto Fim de Tarde na Torre"></button>
     <div class="photo" style="background-image:url('fotos/15.JPG')"></div>
-    <div class="meta"><span class="title">Fim de Tarde na Torre</span><span class="tag">Brasília · f/6.3 · 1/640s · ISO 100</span></div>
+    <div class="meta"><span class="title">Fim de Tarde na Torre</span><span class="tag">Brasília · 2026</span></div>
   </div>
 
 </div>
 
-<footer>
+
+<section class="about" id="sobre">
+  <h2>Sobre</h2>
+  <div class="about-copy">
+    <p>Linek Reis é fotógrafo documental baseado em Brasília. Seu trabalho observa como a vida cotidiana ocupa, transforma e contradiz a arquitetura da cidade.</p>
+    <p>As imagens deste ensaio foram feitas a pé, entre ruas, ônibus, parques e espaços monumentais. O interesse está nos pequenos gestos, nas esperas e nos encontros que geralmente passam despercebidos.</p>
+  </div>
+</section>
+
+<footer id="contato">
   <div class="big">Vamos<br><a href="mailto:lienkreis@hotmail.com">conversar &#8599;</a></div>
   <div class="links">
     <a href="mailto:lienkreis@hotmail.com">E-mail</a>
     <a href="https://www.instagram.com/linekreis/" target="_blank" rel="noopener">Instagram</a>
     <a href="#portfolio">Portfólio</a>
+    <a href="#sobre">Sobre</a>
   </div>
   <div class="copyright">&copy; <span id="year"></span> Linek Reis — Fotografia de Rua. Todas as imagens reservadas.</div>
 </footer>
